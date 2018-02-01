@@ -5,25 +5,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Camera {
 	
-	public void snap() {
+	public void snap() throws Exception {
 		System.out.println("SNAP!");
+		throw new Exception("bue!");
 	}
 	
-	public void snap(int exposure) {
-		System.out.println("SNAP! Exposure:" + exposure);
-	}
-	
-	public void snap(String name) {
-		System.out.println("SNAP! name:" + name);
-	}
-	
-	public String snapWithReturn(String name) {
-		System.out.println("SNAP with return! name:" + name);
+	public String snap(String name) {
+		System.out.println("SNAP! with name: " + name);
 		return name;
-	}
-	
-	public void snapNightTime() {
-		System.out.println("SNAP night mode!");
 	}
 
 }
