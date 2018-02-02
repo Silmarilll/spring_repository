@@ -9,15 +9,36 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 	
-	@Pointcut("within(com.spring.aop.*)")
-	public void cameraSnap() {	
+	@Pointcut("within(com.spring.aop..*)")
+	public void withinDemo() {	
 		//Not executed
 		System.out.println("pointcut of snap");
 	}
-
 	
-	@Before(value = "cameraSnap()")
-	public void beforeAdvice() {
-		System.out.println("************Before advice*************");
+	@Pointcut("target(com.spring.aop.Camera)")
+	public void targetDemo() {	
+		//Not executed
+		System.out.println("pointcut of snap");
+	}
+	
+	@Pointcut("this(com.spring.aop.Camera)")
+	public void thisDemo() {	
+		//Not executed
+		System.out.println("pointcut of snap");
+	}
+	
+	@Before(value = "withinDemo()")
+	public void withinDemoAdvice() {
+		System.out.println("************Before demo*************");
+	}
+	
+	@Before(value = "targetDemo()")
+	public void targetDemoAdvice() {
+		System.out.println("************Target demo*************");
+	}
+	
+	@Before(value = "thisDemo()")
+	public void thisDemoAdvice() {
+		System.out.println("************This demo*************");
 	}
 }
