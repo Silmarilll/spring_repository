@@ -7,14 +7,14 @@ public class App {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/spring/aop/beans.xml");
 		Camera camera = (Camera) context.getBean("camera");
+		Car car = (Car) context.getBean("car");
+		
+		camera.snap();
+		camera.snap(500);
+		camera.snapNightTime();
 
-		try {
-			camera.snap();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println("Exception caught");
-		}
-		System.out.println("-----------");
+		car.start();
+
 
 		context.close();
 
