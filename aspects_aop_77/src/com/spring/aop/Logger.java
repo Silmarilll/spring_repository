@@ -8,37 +8,69 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Logger {
-	
-	@Pointcut("within(com.spring.aop..*)")
+
+	// components arguments
+	@Pointcut("@args(org.springframework.stereotype.Component)")
 	public void withinDemo() {	
 		//Not executed
 		System.out.println("pointcut of snap");
 	}
+
 	
-	@Pointcut("target(com.spring.aop.Camera)")
-	public void targetDemo() {	
+	@Before(value = "withinDemo()")
+	public void withinDemoAdvice() {
+		System.out.println("************Before demo*************");
+	}
+/*	
+	@Pointcut("@args(java.lang.Deprecated)")
+	public void withinDemo() {	
 		//Not executed
 		System.out.println("pointcut of snap");
 	}
-	
-	@Pointcut("this(com.spring.aop.Camera)")
-	public void thisDemo() {	
-		//Not executed
-		System.out.println("pointcut of snap");
-	}
+
 	
 	@Before(value = "withinDemo()")
 	public void withinDemoAdvice() {
 		System.out.println("************Before demo*************");
 	}
 	
-	@Before(value = "targetDemo()")
-	public void targetDemoAdvice() {
-		System.out.println("************Target demo*************");
+	//only deprecated methods
+		
+	@Pointcut("@annotation(java.lang.Deprecated)")
+	public void withinDemo() {	
+		//Not executed
+		System.out.println("pointcut of snap");
+	}
+
+	
+	@Before(value = "withinDemo()")
+	public void withinDemoAdvice() {
+		System.out.println("************Before demo*************");
 	}
 	
-	@Before(value = "thisDemo()")
-	public void thisDemoAdvice() {
-		System.out.println("************This demo*************");
+	@Pointcut("@target(org.springframework.stereotype.Component)")
+	public void withinDemo() {	
+		//Not executed
+		System.out.println("pointcut of snap");
 	}
+
+	
+	@Before(value = "withinDemo()")
+	public void withinDemoAdvice() {
+		System.out.println("************Before demo*************");
+	}
+	// you can't use wildcard with within
+	
+	@Pointcut("within(@org.springframework.stereotype.Component com.spring..*)")
+	public void withinDemo() {	
+		//Not executed
+		System.out.println("pointcut of snap");
+	}
+
+	
+	@Before(value = "withinDemo()")
+	public void withinDemoAdvice() {
+		System.out.println("************Before demo*************");
+	}*/
+
 }

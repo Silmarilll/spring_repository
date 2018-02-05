@@ -12,6 +12,7 @@ public class App {
 		camera.snap();
 		camera.snap(500);
 		camera.snapNightTime();
+		camera.snapCar(new Car());
 
 		car.start();
 

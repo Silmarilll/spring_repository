@@ -3,8 +3,9 @@ package com.spring.aop;
 import org.springframework.stereotype.Component;
 
 @Component("camera")
-public class Camera implements PhotoSnapper, Machine{
+public class Camera implements Machine{
 	
+	@Deprecated
 	public void snap()  {
 		System.out.println("SNAP!");
 	}
@@ -20,6 +21,10 @@ public class Camera implements PhotoSnapper, Machine{
 
 	public void snapNightTime() {
 		System.out.println("SNAP! Night mode");		
+	}
+	
+	public void snapCar(Car car) {
+		System.out.println("snap car");
 	}
 
 }
