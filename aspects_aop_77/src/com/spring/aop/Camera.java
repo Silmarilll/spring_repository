@@ -24,7 +24,7 @@ public class Camera implements Machine{
 	}
 	
 	public void snapCar(Car car) {
-		System.out.println("snap car");
+		System.out.println("SNAP! Car");
 	}
 
 }
