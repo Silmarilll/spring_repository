@@ -19,8 +19,8 @@ public class Camera implements Machine{
 		System.out.println("SNAP! Exposure: " + exposure);	
 	}
 	
-	public void snap(int exposure, double operture) {
-		System.out.println("SNAP! Exposure: " + exposure + ", operture " + operture);	
+	public void snap(int exposure, double aperture) {
+		System.out.println("SNAP! Exposure: " + exposure + ", aperture " + aperture);	
 	}
 
 	public void snapNightTime() {

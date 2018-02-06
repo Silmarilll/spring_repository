@@ -1,7 +1,5 @@
 package com.spring.aop;
 
-import java.util.stream.Stream;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -12,19 +10,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 	
-	//only doubles (no int)
-	@Pointcut("bean(camera)")
-	public void withinDemo() {	
+	@Pointcut("args(exposure, aperture)")
+	public void withinDemo(int exposure, double aperture) {	
 		//Not executed
 		System.out.println("pointcut of snap");
 	}
 
 	
-	@Before(value = "withinDemo()")
-	public void withinDemoAdvice(JoinPoint jp) {
+	@Before(value = "withinDemo(exposure, aperture)")
+	public void withinDemoAdvice(JoinPoint jp, int exposure, double aperture) {
 		System.out.println("************Before demo*************");
-		Stream.of(jp.getArgs())
-		.forEach(arg -> System.out.println("ARG: " + arg));
+		System.out.printf("exposure %d, aperture %.2f\n", exposure, aperture);
 	}
-
 }
