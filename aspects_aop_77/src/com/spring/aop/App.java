@@ -6,19 +6,16 @@ public class App {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/spring/aop/beans.xml");
-		Camera camera = (Camera) context.getBean("camera");
-		Car car = (Car) context.getBean("car");
 		
-		camera.snap();
-		camera.snap(500);
-		camera.snap(1.8);
-		camera.snap(500, 1.6);
+		Blender blender = (Blender) context.getBean("blender");
+		blender.blend();		
 		
-		camera.snapNightTime();
-		camera.snapCar(new Car());
-
-		car.start();
-
+		((IMachine) blender).start();
+		
+		Fan fan = (Fan) context.getBean("fan");		
+		fan.activate(5);
+		
+		((IMachine) fan).start();
 
 		context.close();
 

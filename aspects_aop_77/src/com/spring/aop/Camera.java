@@ -3,7 +3,7 @@ package com.spring.aop;
 import org.springframework.stereotype.Component;
 
 @Component("camera")
-public class Camera implements Machine{
+public class Camera {
 	
 	@Deprecated
 	public void snap()  {

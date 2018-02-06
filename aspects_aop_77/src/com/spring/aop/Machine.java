@@ -1,5 +1,6 @@
 package com.spring.aop;
 
-public interface Machine {
+public class Machine  {
+
 
 }
