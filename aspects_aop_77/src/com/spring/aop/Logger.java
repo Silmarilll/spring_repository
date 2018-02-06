@@ -8,15 +8,23 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Logger {
-
-	// components arguments
-	@Pointcut("bean(camera)")
+	
+	//only doubles (no int)
+	@Pointcut("args(Double)")
 	public void withinDemo() {	
 		//Not executed
 		System.out.println("pointcut of snap");
 	}
+
+
+// doing matching with cast(snap(int) will be included)	
+/*	@Pointcut("args(.., double)")
+	public void withinDemo() {	
+		//Not executed
+		System.out.println("pointcut of snap");
+	}*/
 	
-/*	@Pointcut("bean(*)")
+/*	@Pointcut("args(com.spring.aop.Car)")
 	public void withinDemo() {	
 		//Not executed
 		System.out.println("pointcut of snap");

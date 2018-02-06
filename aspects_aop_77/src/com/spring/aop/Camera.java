@@ -18,6 +18,10 @@ public class Camera implements Machine{
 	public void snap(int exposure) {
 		System.out.println("SNAP! Exposure: " + exposure);	
 	}
+	
+	public void snap(int exposure, double operture) {
+		System.out.println("SNAP! Exposure: " + exposure + ", operture " + operture);	
+	}
 
 	public void snapNightTime() {
 		System.out.println("SNAP! Night mode");		
@@ -25,6 +29,10 @@ public class Camera implements Machine{
 	
 	public void snapCar(Car car) {
 		System.out.println("SNAP! Car");
+	}
+
+	public void snap(double exposure) {
+		System.out.println("SNAP! Exposure: " + exposure);			
 	}
 
 }
